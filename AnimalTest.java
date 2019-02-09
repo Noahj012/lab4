@@ -8,7 +8,7 @@ public class AnimalTest
 {
 	private final String COLOR = "Red";
 	private final String NAME = "Betsy";
-	private final String TO_STRING = "noname, a unknown-colored animal. 185 pounds, 10 inches.\n";
+	private final String TO_STRING = "Betsy, a Red-colored animal. 10.0 pounds, 185.0 inches\n";
 	private final double HEIGHT = 10;
 	private final double WEIGHT = 185;
 
@@ -32,13 +32,14 @@ public class AnimalTest
     public void fullContructorTest() throws AssertException
     {
     	// declares cow animal named Betsy
-    	Animal ani = new Animal(COLOR, NAME, HEIGHT, WEIGHT);
+    	Animal ani = new Animal(COLOR, NAME, WEIGHT, HEIGHT);
     	
     	// Tests fully declared animal object
     	Assert.assertEquals(COLOR, ani.getColor());
         Assert.assertEquals(NAME, ani.getName());
-        Assert.assertEquals(HEIGHT, ani.getHeight(), 0.01);
         Assert.assertEquals(WEIGHT, ani.getWeight(), 0.01);
+        Assert.assertEquals(HEIGHT, ani.getHeight(), 0.01);
+        
     }
     
     public void getColorTest() throws AssertException
@@ -57,14 +58,14 @@ public class AnimalTest
     
     public void getHeightTest() throws AssertException
     {
-    	Animal ani = new Animal("", "", HEIGHT, 0);
+    	Animal ani = new Animal("", "", 0, HEIGHT);
     	
     	Assert.assertEquals(HEIGHT, ani.getHeight());
     }
     
     public void getWeightTest() throws AssertException
     {
-    	Animal ani = new Animal("", "", 0, WEIGHT);
+    	Animal ani = new Animal("", "", WEIGHT, 0);
     	
     	Assert.assertEquals(WEIGHT, ani.getWeight());
     }
@@ -72,7 +73,7 @@ public class AnimalTest
     
     public void toStringTest() throws AssertException
     {
-    	Animal ani = new Animal();
+    	Animal ani = new Animal(COLOR, NAME, HEIGHT, WEIGHT);
     	
     	Assert.assertEquals(TO_STRING, ani.toString());
     }
