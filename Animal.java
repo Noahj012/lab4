@@ -142,6 +142,6 @@ public class Animal
         
         // TODO: finish this...
         
-        /* return TODO; */
+        return true; 
     }
 }
